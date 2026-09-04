@@ -1,0 +1,1185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Ankita Yadav | Software Developer</title>
+
+    <meta name="description"
+          content="Ankita Yadav - Computer Science Engineering graduate and software developer specializing in Java, Python, React, Flask, SQL and AI/ML.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #0a0a0a;
+            --card: #111111;
+            --card-hover: #161616;
+            --text: #f5f5f5;
+            --muted: #a1a1aa;
+            --border: #27272a;
+            --accent: #ffffff;
+            --accent-dark: #0a0a0a;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        .container {
+            width: min(1100px, 90%);
+            margin: auto;
+        }
+
+        /* NAVBAR */
+
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            backdrop-filter: blur(15px);
+            background: rgba(10, 10, 10, 0.8);
+            border-bottom: 1px solid rgba(255,255,255,0.07);
+        }
+
+        .nav-inner {
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: 14px;
+            transition: 0.25s;
+        }
+
+        .nav-links a:hover {
+            color: white;
+        }
+
+        .menu-btn {
+            display: none;
+            border: none;
+            background: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 70px;
+        }
+
+        .hero-content {
+            max-width: 850px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+            padding: 7px 13px;
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            color: #d4d4d8;
+            font-size: 13px;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(48px, 8vw, 88px);
+            line-height: 0.98;
+            letter-spacing: -5px;
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: #71717a;
+        }
+
+        .hero-description {
+            max-width: 680px;
+            color: var(--muted);
+            font-size: 18px;
+            line-height: 1.8;
+            margin-bottom: 32px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            border-radius: 7px;
+            border: 1px solid var(--border);
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.25s;
+        }
+
+        .btn-primary {
+            background: white;
+            color: black;
+            border-color: white;
+        }
+
+        .btn-primary:hover {
+            background: #d4d4d4;
+        }
+
+        .btn-secondary:hover {
+            background: #18181b;
+        }
+
+        /* SECTIONS */
+
+        section {
+            padding: 100px 0;
+            border-top: 1px solid rgba(255,255,255,0.06);
+        }
+
+        .section-label {
+            color: #71717a;
+            text-transform: uppercase;
+            font-size: 12px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+            font-weight: 700;
+        }
+
+        .section-title {
+            font-size: 38px;
+            letter-spacing: -1.5px;
+            margin-bottom: 45px;
+        }
+
+        /* ABOUT */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 1fr;
+            gap: 70px;
+        }
+
+        .about-text {
+            color: var(--muted);
+            font-size: 16px;
+            line-height: 1.9;
+        }
+
+        .about-text p + p {
+            margin-top: 18px;
+        }
+
+        .quick-info {
+            display: grid;
+            gap: 14px;
+        }
+
+        .info-card {
+            padding: 20px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+        }
+
+        .info-card small {
+            display: block;
+            color: #71717a;
+            margin-bottom: 5px;
+            font-size: 12px;
+        }
+
+        .info-card strong {
+            font-size: 15px;
+        }
+
+        /* SKILLS */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+        }
+
+        .skill-card h3 {
+            font-size: 15px;
+            margin-bottom: 15px;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .tag {
+            border: 1px solid var(--border);
+            padding: 6px 10px;
+            border-radius: 5px;
+            color: #d4d4d8;
+            font-size: 12px;
+        }
+
+        /* EXPERIENCE */
+
+        .timeline {
+            display: grid;
+            gap: 22px;
+        }
+
+        .experience-card {
+            padding: 28px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+            transition: 0.25s;
+        }
+
+        .experience-card:hover,
+        .project-card:hover {
+            background: var(--card-hover);
+            border-color: #3f3f46;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 15px;
+        }
+
+        .experience-header h3 {
+            font-size: 18px;
+        }
+
+        .company {
+            color: #a1a1aa;
+            font-size: 14px;
+            margin-top: 3px;
+        }
+
+        .date {
+            color: #71717a;
+            font-size: 13px;
+            white-space: nowrap;
+        }
+
+        .experience-card ul {
+            padding-left: 20px;
+            color: var(--muted);
+        }
+
+        .experience-card li {
+            margin: 8px 0;
+        }
+
+        /* PROJECTS */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .project-card {
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 28px;
+            background: var(--card);
+            transition: 0.25s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-number {
+            color: #52525b;
+            font-size: 13px;
+            margin-bottom: 20px;
+        }
+
+        .project-card h3 {
+            font-size: 21px;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: 14px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+        }
+
+        .project-tech {
+            margin-top: auto;
+            padding-top: 15px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+        }
+
+        .project-tech span {
+            color: #a1a1aa;
+            font-size: 11px;
+            border: 1px solid var(--border);
+            padding: 5px 8px;
+            border-radius: 4px;
+        }
+
+        /* ACHIEVEMENTS */
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+        }
+
+        .achievement {
+            padding: 25px;
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            background: var(--card);
+        }
+
+        .achievement-number {
+            font-size: 32px;
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 8px;
+        }
+
+        .achievement p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* EDUCATION */
+
+        .education {
+            border: 1px solid var(--border);
+            background: var(--card);
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .education h3 {
+            font-size: 20px;
+            margin-bottom: 6px;
+        }
+
+        .education .college {
+            color: #a1a1aa;
+            margin-bottom: 15px;
+        }
+
+        .education p {
+            color: var(--muted);
+            font-size: 14px;
+        }
+
+        /* CONTACT */
+
+        .contact {
+            text-align: center;
+            padding-bottom: 120px;
+        }
+
+        .contact h2 {
+            font-size: clamp(38px, 6vw, 65px);
+            letter-spacing: -3px;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            color: var(--muted);
+            max-width: 550px;
+            margin: auto auto 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        /* FOOTER */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 25px 0;
+            color: #71717a;
+            font-size: 12px;
+            text-align: center;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 750px) {
+
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: #0a0a0a;
+                padding: 25px;
+                flex-direction: column;
+                border-bottom: 1px solid var(--border);
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                letter-spacing: -3px;
+            }
+
+            .hero-description {
+                font-size: 16px;
+            }
+
+            .about-grid,
+            .skills-grid,
+            .projects-grid,
+            .achievement-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .date {
+                white-space: normal;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVIGATION -->
+
+<nav>
+    <div class="container nav-inner">
+
+        <a href="#home" class="logo">AY.</a>
+
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#achievements">Achievements</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+    </div>
+</nav>
+
+
+<!-- HERO -->
+
+<main>
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content">
+
+            <div class="eyebrow">
+                Computer Science Engineering Graduate
+            </div>
+
+            <h1>
+                Ankita<br>
+                <span>Yadav.</span>
+            </h1>
+
+            <p class="hero-description">
+                Software developer with hands-on experience in full-stack
+                development, backend systems and AI/ML applications.
+                I enjoy building practical products and solving
+                challenging technical problems.
+            </p>
+
+            <div class="buttons">
+
+                <a href="#projects" class="btn btn-primary">
+                    View Projects
+                </a>
+
+                <a href="resume.pdf"
+                   class="btn btn-secondary"
+                   target="_blank">
+                    View Resume
+                </a>
+
+                <!-- Replace with your actual LinkedIn URL -->
+                <a href="https://www.linkedin.com/in/ankita-y-939792236/"
+                   target="_blank"
+                   class="btn btn-secondary">
+                    LinkedIn
+                </a>
+
+                <!-- Replace with your actual GitHub URL -->
+                <a href="https://github.com/ankitaweb26"
+                   target="_blank"
+                   class="btn btn-secondary">
+                    GitHub
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section id="about">
+
+    <div class="container">
+
+        <div class="section-label">01 / About</div>
+
+        <h2 class="section-title">A little about me.</h2>
+
+        <div class="about-grid">
+
+            <div class="about-text">
+
+                <p>
+                    I am a Computer Science Engineering graduate with
+                    hands-on experience across software development,
+                    backend systems, full-stack applications and
+                    machine learning.
+                </p>
+
+                <p>
+                    My technical background includes Java, Python,
+                    JavaScript, React, Flask, SQL, REST APIs and Git,
+                    along with strong foundations in Data Structures
+                    and Algorithms, OOP, DBMS, Operating Systems and
+                    Computer Networks.
+                </p>
+
+                <p>
+                    I have worked on real-world projects involving
+                    real-time transportation tracking, recommendation
+                    systems, crop disease detection, geolocation
+                    applications and AI-powered conversational systems.
+                </p>
+
+            </div>
+
+            <div class="quick-info">
+
+                <div class="info-card">
+                    <small>EDUCATION</small>
+                    <strong>B.Tech. Computer Science & Engineering</strong>
+                </div>
+
+                <div class="info-card">
+                    <small>COLLEGE</small>
+                    <strong>Rajkiya Engineering College, Mainpuri</strong>
+                </div>
+
+                <div class="info-card">
+                    <small>CGPA</small>
+                    <strong>7.5 / 10</strong>
+                </div>
+
+                <div class="info-card">
+                    <small>FOCUS</small>
+                    <strong>Software Development • Full Stack • AI/ML</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SKILLS -->
+
+<section id="skills">
+
+    <div class="container">
+
+        <div class="section-label">02 / Skills</div>
+
+        <h2 class="section-title">What I work with.</h2>
+
+        <div class="skills-grid">
+
+            <div class="skill-card">
+
+                <h3>Programming</h3>
+
+                <div class="tags">
+                    <span class="tag">Java</span>
+                    <span class="tag">Python</span>
+                    <span class="tag">JavaScript</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Web Development</h3>
+
+                <div class="tags">
+                    <span class="tag">HTML</span>
+                    <span class="tag">CSS</span>
+                    <span class="tag">React.js</span>
+                    <span class="tag">Node.js</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Backend & APIs</h3>
+
+                <div class="tags">
+                    <span class="tag">Flask</span>
+                    <span class="tag">REST APIs</span>
+                    <span class="tag">API Integration</span>
+                    <span class="tag">Backend Development</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Databases & Tools</h3>
+
+                <div class="tags">
+                    <span class="tag">SQL</span>
+                    <span class="tag">MySQL</span>
+                    <span class="tag">Git</span>
+                    <span class="tag">GitHub</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>AI / Machine Learning</h3>
+
+                <div class="tags">
+                    <span class="tag">TensorFlow</span>
+                    <span class="tag">Keras</span>
+                    <span class="tag">Scikit-learn</span>
+                    <span class="tag">Pandas</span>
+                    <span class="tag">NumPy</span>
+                </div>
+
+            </div>
+
+
+            <div class="skill-card">
+
+                <h3>Computer Science</h3>
+
+                <div class="tags">
+                    <span class="tag">DSA</span>
+                    <span class="tag">OOP</span>
+                    <span class="tag">DBMS</span>
+                    <span class="tag">Operating Systems</span>
+                    <span class="tag">Computer Networks</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPERIENCE -->
+
+<section id="experience">
+
+    <div class="container">
+
+        <div class="section-label">03 / Experience</div>
+
+        <h2 class="section-title">Where I've worked.</h2>
+
+        <div class="timeline">
+
+
+            <div class="experience-card">
+
+                <div class="experience-header">
+
+                    <div>
+                        <h3>AI Intern</h3>
+                        <div class="company">IBM</div>
+                    </div>
+
+                    <div class="date">
+                        Jul 2025 — Aug 2025
+                    </div>
+
+                </div>
+
+                <ul>
+                    <li>
+                        Developed a book recommendation chatbot using
+                        IBM Watson Assistant with intents, conversation
+                        flows and context handling.
+                    </li>
+
+                    <li>
+                        Tested and refined chatbot workflows for
+                        multiple user interaction scenarios.
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-header">
+
+                    <div>
+                        <h3>ML / Web Development Intern</h3>
+                        <div class="company">DCM Shriram Ltd.</div>
+                    </div>
+
+                    <div class="date">
+                        Jul 2025 — Aug 2025
+                    </div>
+
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developed a GPS-based web application for
+                        agricultural plot mapping and distance
+                        calculation using geolocation and mapping APIs.
+                    </li>
+
+                    <li>
+                        Integrated a CNN-based crop disease detection
+                        model with application components and backend
+                        prediction workflows.
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+            <div class="experience-card">
+
+                <div class="experience-header">
+
+                    <div>
+                        <h3>Machine Learning Intern</h3>
+                        <div class="company">SetuBazaar</div>
+                    </div>
+
+                    <div class="date">
+                        May 2023 — Nov 2023
+                    </div>
+
+                </div>
+
+                <ul>
+
+                    <li>
+                        Developed recommendation and segmentation
+                        models and integrated model functionality
+                        with a Flask backend.
+                    </li>
+
+                    <li>
+                        Performed data preprocessing, feature
+                        engineering, model evaluation and application
+                        integration using Git and Agile practices.
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PROJECTS -->
+
+<section id="projects">
+
+    <div class="container">
+
+        <div class="section-label">04 / Projects</div>
+
+        <h2 class="section-title">Things I've built.</h2>
+
+        <div class="projects-grid">
+
+
+            <div class="project-card">
+
+                <div class="project-number">01</div>
+
+                <h3>UrbanMove</h3>
+
+                <p>
+                    A real-time public transport platform with user
+                    and driver applications for live bus tracking,
+                    ETA prediction, fare calculation and seat
+                    availability.
+                </p>
+
+                <p>
+                    Built frontend and backend components and
+                    implemented workflows for location updates,
+                    trip processing, API integration and real-time
+                    user updates.
+                </p>
+
+                <div class="project-tech">
+                    <span>React</span>
+                    <span>Flask</span>
+                    <span>Firebase</span>
+                    <span>REST APIs</span>
+                    <span>LSTM</span>
+                    <span>Transformers</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">02</div>
+
+                <h3>AI Groundwater Level Predictor</h3>
+
+                <p>
+                    A prediction application using Multiple Linear
+                    Regression to estimate groundwater levels from
+                    environmental and hydrological data.
+                </p>
+
+                <p>
+                    Implemented preprocessing, feature selection,
+                    model training, evaluation and application-level
+                    prediction workflows.
+                </p>
+
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>Scikit-learn</span>
+                    <span>Pandas</span>
+                    <span>NumPy</span>
+                    <span>Machine Learning</span>
+                </div>
+
+            </div>
+
+
+            <div class="project-card">
+
+                <div class="project-number">03</div>
+
+                <h3>AI Crop Disease Detection</h3>
+
+                <p>
+                    A CNN-based image classification application for
+                    crop disease detection.
+                </p>
+
+                <p>
+                    Integrated model predictions with a backend
+                    workflow to provide disease information and
+                    treatment suggestions.
+                </p>
+
+                <div class="project-tech">
+                    <span>Python</span>
+                    <span>TensorFlow</span>
+                    <span>Keras</span>
+                    <span>CNN</span>
+                    <span>Backend</span>
+                </div>
+
+            </div>
+
+
+</section>
+
+
+<!-- ACHIEVEMENTS -->
+
+<section id="achievements">
+
+    <div class="container">
+
+        <div class="section-label">05 / Achievements</div>
+
+        <h2 class="section-title">A few milestones.</h2>
+
+        <div class="achievement-grid">
+
+            <div class="achievement">
+
+                <div class="achievement-number">
+                    #249
+                </div>
+
+                <p>
+                    Global Rank in TCS CodeVita 2026 Round 2
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-number">
+                    #1497
+                </div>
+
+                <p>
+                    Global Rank in TCS CodeVita 2026 Round 1
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-number">
+                    Qaulified
+                </div>
+
+                <p>
+                    Qualified all competition rounds in
+                    TCS HackQuest Season 10
+                </p>
+
+            </div>
+
+
+            <div class="achievement">
+
+                <div class="achievement-number">
+                    7.5
+                </div>
+
+                <p>
+                    CGPA in B.Tech. Computer Science & Engineering
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- EDUCATION -->
+
+<section>
+
+    <div class="container">
+
+        <div class="section-label">06 / Education</div>
+
+        <h2 class="section-title">Education.</h2>
+
+        <div class="education">
+
+            <h3>
+                B.Tech. in Computer Science & Engineering
+            </h3>
+
+            <div class="college">
+                Rajkiya Engineering College, Mainpuri (AKTU)
+            </div>
+
+            <p>
+                2022 — 2026 &nbsp; • &nbsp; CGPA: 7.5 / 10
+            </p>
+
+            <br>
+
+            <p>
+                Coursework: Data Structures & Algorithms, OOP,
+                DBMS, Operating Systems, Computer Networks,
+                Artificial Intelligence and Machine Learning.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section class="contact" id="contact">
+
+    <div class="container">
+
+        <div class="section-label">07 / Contact</div>
+
+        <h2>Let's connect.</h2>
+
+        <p>
+            I'm interested in Software Development, Full-Stack Engineering, Backend Development, and AI/ML roles. I enjoy building practical applications, developing intelligent solutions, and solving challenging technical problems.
+        </p>
+
+        <div class="contact-links">
+
+            <a href="mailto:26ankitayadav2005@gmail.com"
+               class="btn btn-primary">
+                Email Me
+            </a>
+
+            <!-- Replace with your actual LinkedIn URL -->
+            <a href="https://www.linkedin.com/in/ankita-y-939792236/"
+               target="_blank"
+               class="btn btn-secondary">
+                LinkedIn
+            </a>
+
+            <!-- Replace with your actual GitHub URL -->
+            <a href="https://github.com/ankitaweb26L"
+               target="_blank"
+               class="btn btn-secondary">
+                GitHub
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+</main>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="container">
+        © 2026 Ankita Yadav. Built with HTML, CSS & JavaScript.
+    </div>
+
+</footer>
+
+
+<script>
+
+    const menuBtn = document.getElementById("menuBtn");
+    const navLinks = document.getElementById("navLinks");
+
+    menuBtn.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+        link.addEventListener("click", () => {
+            navLinks.classList.remove("active");
+        });
+    });
+
+</script>
+
+</body>
+</html>
